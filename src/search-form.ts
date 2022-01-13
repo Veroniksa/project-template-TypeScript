@@ -1,6 +1,23 @@
 import { renderBlock } from './lib.js'
 
-export function renderSearchFormBlock () {
+const addZero = (dateNum: number): string => {
+  const single: boolean = dateNum < 10
+
+  return (single ? `0${dateNum}` : `${dateNum}`)
+}
+
+const date: Date = new Date()
+const now: string = addZero(date.getDate())
+const mounth: string = addZero(date.getMonth() + 1)
+const year: number = date.getFullYear()
+const tomorrow: string = addZero(date.getDate() + 2)
+
+const dateNow: string = `${year}-${mounth}-${now}`
+const dateTomorrow: string = `${year}-${mounth}-${tomorrow}`
+const lastDay: Date = new Date(date.getFullYear(), date.getMonth() + 2, 0);
+
+
+export function renderSearchFormBlock() {
   renderBlock(
     'search-form-block',
     `
@@ -20,11 +37,11 @@ export function renderSearchFormBlock () {
         <div class="row">
           <div>
             <label for="check-in-date">Дата заезда</label>
-            <input id="check-in-date" type="date" value="2021-05-11" min="2021-05-11" max="2021-06-30" name="checkin" />
+            <input id="check-in-date" type="date" value="${dateNow}" min="${dateNow}" max="${lastDay}" name="checkin" />
           </div>
           <div>
             <label for="check-out-date">Дата выезда</label>
-            <input id="check-out-date" type="date" value="2021-05-13" min="2021-05-11" max="2021-06-30" name="checkout" />
+            <input id="check-out-date" type="date" value="${dateTomorrow}" min="${dateNow}" max="${lastDay}" name="checkout" />
           </div>
           <div>
             <label for="max-price">Макс. цена суток</label>
