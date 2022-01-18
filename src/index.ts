@@ -2,6 +2,9 @@ import { renderSearchFormBlock } from './search-form.js'
 import { renderSearchStubBlock } from './search-results.js'
 import { renderUserBlock } from './user.js'
 import { renderToast } from './lib.js'
+import { getTodosByCount} from "./api.js"
+
+getTodosByCount(1)
 
 function getUserData():unknown {
 
