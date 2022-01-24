@@ -5,6 +5,12 @@ const addZero = (dateNum: number): string => {
 
   return (single ? `0${dateNum}` : `${dateNum}`)
 }
+export interface SearchFormData {
+  dateNow: string
+  lastDay: Date
+  dateTomorrow: string
+  price?: number
+}
 
 const date: Date = new Date()
 const now: string = addZero(date.getDate())
@@ -16,8 +22,17 @@ const dateNow: string = `${year}-${mounth}-${now}`
 const dateTomorrow: string = `${year}-${mounth}-${tomorrow}`
 const lastDay: Date = new Date(date.getFullYear(), date.getMonth() + 2, 0);
 
+function search(): unknown {
+  return `${dateNow}, ${lastDay}, ${dateTomorrow}` 
+}
 
-export function renderSearchFormBlock() {
+function searchForm(SearchForm: SearchFormData) {
+  search()
+  console.log(SearchForm)
+}
+
+
+export function renderSearchFormBlock(dateNow?: string, lastDay?:Date) {
   renderBlock(
     'search-form-block',
     `
@@ -48,7 +63,7 @@ export function renderSearchFormBlock() {
             <input id="max-price" type="text" value="" name="price" class="max-price" />
           </div>
           <div>
-            <div><button>Найти</button></div>
+            <div onClick="${searchForm({dateNow, lastDay, dateTomorrow})}"><button>Найти</button></div>
           </div>
         </div>
       </fieldset>
