@@ -5,18 +5,18 @@
 Вывести 10 TODO в консоль и типизировать response
 */
 
+interface TODO {
+   userId: number,
+   id: number,
+   title: string,
+   completed: boolean
+}
+
 export function getTodosByCount(count: number) {
 
    for (count = 1; count <= 10; count++) {
       fetch(`https://jsonplaceholder.typicode.com/todos/${count}`)
-         .then(response => response.json())
+         .then<TODO>(response => response.json())
          .then(json => console.log(json))
-   }
-
-   interface TODO {
-      userId: number,
-      id: number,
-      title: string,
-      completed: boolean
    }
 }

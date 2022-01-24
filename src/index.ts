@@ -26,7 +26,7 @@ function getFavoritesAmount():unknown{
     favoriteItemsAmount:number
   }
   
-  localStorage.favoritesAmount = JSON.stringify({ favoriteItemsAmount:0})
+  localStorage.favoritesAmount = JSON.stringify({ favoriteItemsAmount:6})
   let favoritesAmount: favoritesAmount = JSON.parse(localStorage.favoritesAmount)
 
   return console.log(favoritesAmount.favoriteItemsAmount)
@@ -34,7 +34,7 @@ function getFavoritesAmount():unknown{
 getFavoritesAmount()
 
 window.addEventListener('DOMContentLoaded', () => {
-  renderUserBlock("Wade Warren", "/img/avatar.png", 0)
+  renderUserBlock(localStorage.userName, localStorage.avatarUrl, localStorage.favoriteItemsAmount)
   renderSearchFormBlock()
   renderSearchStubBlock()
   renderToast(

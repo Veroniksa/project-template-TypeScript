@@ -32,7 +32,7 @@ function searchForm(SearchForm: SearchFormData) {
 }
 
 
-export function renderSearchFormBlock() {
+export function renderSearchFormBlock(dateNow?: string, lastDay?:Date) {
   renderBlock(
     'search-form-block',
     `
