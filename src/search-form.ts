@@ -23,7 +23,7 @@ const dateTomorrow: string = `${year}-${mounth}-${tomorrow}`
 const lastDay: Date = new Date(date.getFullYear(), date.getMonth() + 2, 0);
 
 function search(): unknown {
-  return `${dateNow}, ${lastDay}, ${dateTomorrow}` 
+  return console.log(`${dateNow}, ${lastDay}, ${dateTomorrow}`) 
 }
 
 function searchForm(SearchForm: SearchFormData) {

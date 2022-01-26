@@ -2,31 +2,34 @@ import { renderSearchFormBlock } from './search-form.js'
 import { renderSearchStubBlock } from './search-results.js'
 import { renderUserBlock } from './user.js'
 import { renderToast } from './lib.js'
-import { getTodosByCount} from "./api.js"
+import { getTodosByCount } from "./api.js"
+import { cloneDate, addDays} from "flat-rent-sdk"
+
+console.log(cloneDate, addDays)
 
 getTodosByCount(1)
 
-function getUserData():unknown {
+function getUserData(): unknown {
 
-  interface user{
-    userName:string
-    avatarUrl:string
+  interface user {
+    userName: string
+    avatarUrl: string
   }
 
-  localStorage.user = JSON.stringify({ userName: "Wade Warren", avatarUrl: "/img/avatar.png"})
-  let user:user = JSON.parse(localStorage.user)
+  localStorage.user = JSON.stringify({ userName: "Wade Warren", avatarUrl: "/img/avatar.png" })
+  let user: user = JSON.parse(localStorage.user)
 
   return console.log(user.userName, user.avatarUrl)
 }
 getUserData()
 
-function getFavoritesAmount():unknown{
+function getFavoritesAmount(): unknown {
 
   interface favoritesAmount {
-    favoriteItemsAmount:number
+    favoriteItemsAmount: number
   }
-  
-  localStorage.favoritesAmount = JSON.stringify({ favoriteItemsAmount:6})
+
+  localStorage.favoritesAmount = JSON.stringify({ favoriteItemsAmount: 6 })
   let favoritesAmount: favoritesAmount = JSON.parse(localStorage.favoritesAmount)
 
   return console.log(favoritesAmount.favoriteItemsAmount)
