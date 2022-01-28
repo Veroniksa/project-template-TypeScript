@@ -58,7 +58,7 @@ abstract class MyCircle extends MyAreaPrimitive2D {
    }
 }
 
-abstract class MyRectangle extends MyCircle {
+abstract class MyRectangle extends MyAreaPrimitive2D {
    /**
       @param {number} upperLeft левая верхняя граница
       @param {number} rightButtomBorder  правая нижняя граница
@@ -68,12 +68,10 @@ abstract class MyRectangle extends MyCircle {
 
    constructor(
       area: number,
-      circleCenter: number,
-      circleRadius: number,
       public width: number,
       public height: number,
       public upperLeft: number,
       public rightButtomBorder: number
    ) {
-      super(width, height, circleCenter, circleRadius, area)}
+      super(width, height, area)}
 }
