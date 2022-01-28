@@ -10,8 +10,8 @@ function getUserData():unknown {
     avatarUrl:string
   }
 
-  localStorage.user = JSON.stringify({ userName: "Wade Warren", avatarUrl: "/img/avatar.png"})
-  let user:user = JSON.parse(localStorage.user)
+  localStorage["user"] = JSON.stringify({ userName: "Wade Warren", avatarUrl: "/img/avatar.png"})
+  let user: user = JSON.parse(localStorage["user"])
 
   return console.log(user.userName, user.avatarUrl)
 }
@@ -23,8 +23,8 @@ function getFavoritesAmount():unknown{
     favoriteItemsAmount:number
   }
   
-  localStorage.favoritesAmount = JSON.stringify({ favoriteItemsAmount:0})
-  let favoritesAmount: favoritesAmount = JSON.parse(localStorage.favoritesAmount)
+  localStorage["favoritesAmount"] = JSON.stringify({ favoriteItemsAmount:0})
+  let favoritesAmount: favoritesAmount = JSON.parse(localStorage["favoritesAmount"])
 
   return console.log(favoritesAmount.favoriteItemsAmount)
 }
